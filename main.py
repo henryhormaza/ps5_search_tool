@@ -6,7 +6,8 @@ from time import sleep
 
 def ps5_encontrada(temp_url="", temp_class=""):
     webhook = open("webhook.txt", "r")
-    requests.get(url = webhook.read())
+    wh_url = webhook.read()
+    requests.get(url = wh_url)
     print("\n\n #################################################found in: \n "+temp_url+"\n\n")
     driver = webdriver.Firefox()
     driver.get(temp_url)
@@ -141,7 +142,7 @@ for x in range(15):
         print("not found in "+store)
     try:
         #PS5  
-        store="falabella Col digital "
+        store = "falabella Col digital "
         temp_url ='https://www.falabella.com.co/falabella-co/product/9440499/Consola-PlayStation-5-Digital-Edition-825GB/9440499'
         test_url = 'https://www.falabella.com.co/falabella-co/product/9440500/Control-PS5-Dual-Sense/9440500'
         # temp_url = test_url
@@ -157,7 +158,7 @@ for x in range(15):
         print("not found in "+store)
     try:
         #PS5   
-        store  ="la polar"
+        store = "la polar"
         temp_url ='https://www.lapolar.cl/consola-sony-playstation-5/23395401.html'
         test_url = 'https://www.lapolar.cl/control-inalambrico-sony-ps5-dualsense-wireless-controller/23395355.html'
         # temp_url = test_url
@@ -174,5 +175,22 @@ for x in range(15):
             print("not found in "+store)
     except:
         print("not found in "+store)
+
+    try:
+        store = "Pepe Ganga"
+        temp_url = 'https://www.pepeganga.com/consola-ps5-standard-711719541769/p?uam=true&mobile=4'
+        test_url = 'https://www.pepeganga.com/videojuego-ps5-call-of-duty-black-ops-cold-war-047875101142/p?idsku=117943&source_impresee=0a95b19b-d6b1-4260-8606-c08ed12089f3'
+        # temp_url = test_url
+        temp_class = 'buy-in-page-button'
+        temp_id = 'a'
+
+
+        results = check_store(temp_url,temp_class,temp_id)
+        resultado = results[0]
+        #print(resultado.next)
+        ps5_encontrada(temp_url,temp_class)
+    except:
+        print("not found in "+store)
+
 
    
